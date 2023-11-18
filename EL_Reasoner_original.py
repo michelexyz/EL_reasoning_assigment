@@ -56,46 +56,6 @@ conceptNames = ontology.getConceptNames()
 
 #############################################################
 
-def apply_top_rule(axiom, model_dict):
-            # ⊤-rule: Add ⊤ to any individual.
-            for node, value in model_dict.items():
-                if axiom not in value:
-                    value.add(axiom)
-                    changed = True
-                    return changed
-
-def apply_subsumption_rule(axiom, model_dict):
-    for node, value in model_dict.items():
-        # if d has C (left-hand side) assigned and C ⊑ D ∈ T  
-        if axiom.lhs() in value:
-            # then also assign D to d: add right hand side of the axiom to the dicionary
-            value.add(axiom.rhs())
-            changed = True
-            return changed
-
-def apply_conjunction_rule(axiom, model_dict):
-    conjuncts = axiom.getConjuncts()
-    # get left and right conjuncts
-    left_conjunct = conjuncts[0]
-    right_conjunct = conjuncts[1]
-
-    for key, value in model_dict.items():
-        # ⊓-rule 1: If d has C ⊓ D assigned, assign also C and D to d.
-        if axiom in value:
-            value.add(left_conjunct)
-            value.add(right_conjunct)
-            changed = True
-            return changed
-        # ⊓-rule 2: If d has C and D assigned, assign also C ⊓ D to d.
-        if left_conjunct in value and right_conjunct in value:
-            value.add(axiom)
-            changed = True
-            return changed
-
-# def apply_existential_role_rest(axiom, model_dict):
-    
-
-
 def check_subsumed(C0, D0, tbox):
 
     # loop through all concept names to compute subsumers from every concept name
@@ -120,24 +80,61 @@ def check_subsumed(C0, D0, tbox):
                 # apply rules on d in all possible ways
                 if axiomType == "TopConcept$":
                     # apply ⊤-rule
-                    changed = apply_top_rule(axiom, model_dict)
+                    apply_top_rule(axiom, model_dict)
                 if axiomType == "ConceptConjunction":
                     # apply ⊓-rules:
-                    changed = apply_conjunction_rule(axiom, model_dict)
+                    apply_conjunction_rule(axiom, model_dict)
                 if axiomType == "ExistentialRoleRestriction":
-                    role = concept.role()
-                    filler = concept.filler()
-                    for node, concepts in model_dict.items():
-                        if role not in relations_dict[node]:
-
-                            changed = True
-                        
+                    apply_existential_role_rest(axiom, model_dict)
 
                 if axiomType == "GeneralConceptInclusion":
                     # ⊑-rule: If d has C assigned and C ⊑ D ∈ T , then also assign D to d
                     apply_subsumption_rule(axiom, model_dict)
 
-        
+        def apply_top_rule(axiom, model_dict):
+            # ⊤-rule: Add ⊤ to any individual.
+            for node, value in model_dict.items():
+                if axiom not in value:
+                    value.add(axiom)
+                    changed = True
+                    return changed
+
+        def apply_subsumption_rule(axiom, model_dict):
+            for node, value in model_dict.items():
+                # if d has C (left-hand side) assigned and C ⊑ D ∈ T  
+                if axiom.lhs() in value:
+                    # then also assign D to d: add right hand side of the axiom to the dicionary
+                    value.add(axiom.rhs())
+                    changed = True
+                    return changed
+
+        def apply_conjunction_rule(axiom, model_dict):
+            conjuncts = axiom.getConjuncts()
+            # get left and right conjuncts
+            left_conjunct = conjuncts[0]
+            right_conjunct = conjuncts[1]
+
+            for key, value in model_dict.items():
+                # ⊓-rule 1: If d has C ⊓ D assigned, assign also C and D to d.
+                if axiom in value:
+                    value.add(left_conjunct)
+                    value.add(right_conjunct)
+                    changed = True
+                    return changed
+                # ⊓-rule 2: If d has C and D assigned, assign also C ⊓ D to d.
+                if left_conjunct in value and right_conjunct in value:
+                    value.add(axiom)
+                    changed = True
+                    return changed
+
+        def apply_existential_role_rest(axiom, model_dict):
+            role = concept.role()
+            filler = concept.filler()
+            for node, concepts in model_dict.items():
+                if role not in relations_dict[node]:
+
+                    changed=True
+                    return changed
 
     # If D0 was assigned to d0, return YES (C0 subsumed by D0), otherwise return NO (C0 not subsumed by D0)
     if D0 in model_dict[0]:
@@ -159,19 +156,4 @@ def compute_subsumers_of_class(D0, ontology):
     return subsumers
 
 
-if __name__ == "__main__":
-    
-    # get the TBox axioms
-    tbox = ontology.get_tbox(ontology)
-    axioms = tbox.getAxioms()
 
-
-    print("These are the axioms in the TBox:")
-    for axiom in axioms:
-        print(formatter.format(axiom))
-
-    # Get no equivalence tboxp
-    new_tbox = get_no_equivalence_tbox(tbox)
-    print("These are the axioms in the TBox without equivalence axioms:")
-    for axiom in new_tbox:
-        print(formatter.format(axiom))
