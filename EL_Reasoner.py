@@ -162,16 +162,26 @@ def compute_subsumers_of_class(D0, ontology):
 if __name__ == "__main__":
     
     # get the TBox axioms
-    tbox = ontology.get_tbox(ontology)
+    tbox = get_tbox(ontology)
     axioms = tbox.getAxioms()
 
+    
 
-    print("These are the axioms in the TBox:")
-    for axiom in axioms:
-        print(formatter.format(axiom))
+
+    #print("These are the axioms in the TBox:")
+    #for axiom in axioms:
+    #    print(formatter.format(axiom))
 
     # Get no equivalence tboxp
     new_tbox = get_no_equivalence_tbox(tbox)
-    print("These are the axioms in the TBox without equivalence axioms:")
+    #print("These are the axioms in the TBox without equivalence axioms:")
     for axiom in new_tbox:
-        print(formatter.format(axiom))
+        concepts = axiom.subConcepts()
+        left_concept = concepts[0]
+        print(formatter.format(left_concept))
+
+    #for c in allConcepts:
+    #    print(formatter.format(c))
+
+    #for c_n in conceptNames:
+    #    print(formatter.format(c_n))
