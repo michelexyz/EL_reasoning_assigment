@@ -1,7 +1,7 @@
 from collections import defaultdict
 from py4j.java_gateway import JavaGateway
 from tbox_conversion import get_no_equivalence_tbox
-import custom_graph
+from custom_graph import Relation, Node, Graph
 
 # connect to the java gateway of dl4python
 gateway = JavaGateway()
@@ -25,6 +25,8 @@ allConcepts = ontology.getSubConcepts()
 conceptNames = ontology.getConceptNames()
 
 #############################################################
+
+
 
 # applied to every new node
 def apply_top_rule(node):
@@ -110,11 +112,54 @@ def apply_conjunction_rule2(node, concept):
             new_concepts.add(conjunction)
     return new_concepts
 
-#∃-rule 1: If d has an r-successor with C assigned, add ∃r.C to d
+
+# applied to every new concept/node
+#∃-rule 1: If d has ∃r.C assigned
+# if there is some r-successor e of d, with initial concept C assigned, make e the r-successor of d
+# Otherwise add a new r-successor e to d and assign C to e as initial concept
 def apply_existential_rule1(node, concept, graph):
+
+    new_edges = set()# TODO check if this being as set is needed, or if it can be just one edge
+    new_nodes = set()
+
+    conceptType = concept.getClass().getSimpleName()
+    if conceptType != "ExistentialRoleRestriction":
+        print(f"apply_existential_rule1: was not applied to {node}.")
+        print(f"concept {concept} is not an ExistentialRoleRestriction")
+        return new_nodes,new_edges
+    
+    role = concept.role()
+    filler = concept.filler()
+    if role not in node.relations.keys():
+        node.relations[role] = Relation(role)
+    else:
+        # check if there is already some r-successor e of d, with initial concept C assigned
+        for successor_name in node.relations[role].edges:
+
+            if filler in graph[successor_name].initial_concepts:
+
+                print(f"apply_existential_rule1: was not applied to {node}.")
+                print("WARNING: shouldn't arrive here, because this rule should be applied only to new nodes/concepts/relations")
+                
+                return new_nodes, new_edges
+    # check if there is some node e in the graph with initial concept C assigned, make e the r-successor of d
+    for e_name, node in graph.items():
+        if filler in node.initial_concepts:
+            node.add_relation(role, e_name)
+            new_edges.add((node.name, e_name))
+            return new_nodes, new_edges
+
+    # Otherwise add a new r-successor e to d and assign C to e as initial concept
+    new_node = graph.add_node(initial_concepts={filler})
+    new_nodes.add(new_node.name)
+    
+    node.add_relation(role, new_node.name)
+    new_edges.add((node.name, new_node.name))
+    return new_nodes, new_edges
+
+def apply_existential_rule2(node, concept, graph):
     #TODO
     pass
-
 
 def check_subsumed(C0, D0, tbox):
 
