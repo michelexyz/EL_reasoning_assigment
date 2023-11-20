@@ -1,3 +1,6 @@
+#OUTDATED
+
+
 class Relation:
     def __init__(self, name):
         self.name = name

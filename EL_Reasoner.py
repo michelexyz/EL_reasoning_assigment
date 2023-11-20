@@ -1,5 +1,7 @@
 from collections import defaultdict
 from py4j.java_gateway import JavaGateway
+from tbox_conversion import get_no_equivalence_tbox
+import custom_graph
 
 # connect to the java gateway of dl4python
 gateway = JavaGateway()
@@ -15,39 +17,7 @@ elFactory = gateway.getELFactory()
 # load an ontology from a file
 ontology = parser.parseFile("pizza.owl")
 
-# gateway.convertToBinaryConjunctions(ontology)
-# # get the TBox axioms
-# tbox = ontology.tbox()
 
-def get_tbox(ontology):
-    # Converting to binary conjunctions (change all conjunctions so that they have at most two conjuncts)
-    gateway.convertToBinaryConjunctions(ontology)
-    tbox = ontology.tbox()
-    return tbox
-
-def get_no_equivalence_tbox(tbox):
-    # Assume that TBox contains no equivalence axioms
-    # If the TBox contains equivalence axioms C ≡ D, replace each such axiom by the two axioms C ⊑ D and D ⊑ C
-    new_tbox = []
-    axioms = tbox.getAxioms()
-
-    # loop over all axioms in the Tbox
-    for axiom in axioms: 
-        axiomType = axiom.getClass().getSimpleName()
-        # if equivalence axioms C ≡ D, replace each such axiom by the two axioms C ⊑ D and D ⊑ C --> GCI
-        if axiomType == 'EquivalenceAxiom':
-            # get concepts in equivalence axiom
-            concepts = axiom.getConcepts()
-            left_concept = concepts[0]
-            right_concept = concepts[1]
-            gci1 = elFactory.getGCI(left_concept,right_concept)
-            gci2 = elFactory.getGCI(right_concept,left_concept)
-            new_tbox.append(gci1)
-            new_tbox.append(gci2)
-        # if axiom is not an equivalence axiom, just add it to the tbox
-        else: 
-            new_tbox.append(axiom)
-    return new_tbox
 
 # get all concepts occurring in the ontology
 allConcepts = ontology.getSubConcepts()
@@ -56,93 +26,104 @@ conceptNames = ontology.getConceptNames()
 
 #############################################################
 
-def apply_top_rule(axiom, model_dict):
-            # ⊤-rule: Add ⊤ to any individual.
-            for node, value in model_dict.items():
-                if axiom not in value:
-                    value.add(axiom)
-                    changed = True
-                    return changed
+# applied to every new node
+def apply_top_rule(node):
+    # ⊤-rule: Add ⊤ to any individual.
+    top = elFactory.getTopConcept()
+    if top not in node.axioms:
+        node.concepts.add(top)
+        node.initial_concepts.add(top)
+        changed = True
+    else:
+        changed = False
+        print(f"⊤-rule: Add ⊤ to any individual. was not applied to {node}")
+    return changed
 
-def apply_subsumption_rule(axiom, model_dict):
-    for node, value in model_dict.items():
-        # if d has C (left-hand side) assigned and C ⊑ D ∈ T  
-        if axiom.lhs() in value:
-            # then also assign D to d: add right hand side of the axiom to the dicionary
-            value.add(axiom.rhs())
-            changed = True
-            return changed
-
-def apply_conjunction_rule(axiom, model_dict):
-    conjuncts = axiom.getConjuncts()
-    # get left and right conjuncts
-    left_conjunct = conjuncts[0]
-    right_conjunct = conjuncts[1]
-
-    for key, value in model_dict.items():
-        # ⊓-rule 1: If d has C ⊓ D assigned, assign also C and D to d.
-        if axiom in value:
-            value.add(left_conjunct)
-            value.add(right_conjunct)
-            changed = True
-            return changed
-        # ⊓-rule 2: If d has C and D assigned, assign also C ⊓ D to d.
-        if left_conjunct in value and right_conjunct in value:
-            value.add(axiom)
-            changed = True
-            return changed
-
-# def apply_existential_role_rest(axiom, model_dict):
+# applied to every new concept/node
+# ⊑-rule: If d has C assigned and C ⊑ D ∈ T , then also assign D to d 
+def apply_subsumption_rule(node, concept, tbox): #if applied to top rule add new concepts as initial concepts
+    new_concepts = set()
+    conceptType = concept.getClass().getSimpleName()
+    for axiom in tbox:
+        if axiom.lhs() == concept and (axiom.rhs() not in node.concepts):
+            node.concepts.add(axiom.rhs())
+            new_concepts.add(axiom.rhs())
+            #go to next axiom
+            continue
+        #test also with swapped conjuncts if it is a conjunction
+        if conceptType == "ConceptConjunction":
+            conjuncts = concept.getConjuncts()
+            left_conjunct = conjuncts[0]
+            right_conjunct = conjuncts[1]
+            swapped_conjunction = elFactory.getConjunction(right_conjunct, left_conjunct)
+            if axiom.lhs() ==  swapped_conjunction and (axiom.rhs() not in node.concepts):
+                node.concepts.add(axiom.rhs())
+                new_concepts.add(axiom.rhs())
     
+    return new_concepts
+                
+# applied to every new concept/node
+# ⊓-rule 1: If d has C ⊓ D assigned, assign also C and D to d.
+def apply_conjunction_rule1(node, concept):
+    new_concepts = set()
+    conceptType = concept.getClass().getSimpleName()
+    
+    if conceptType == "ConceptConjunction":
+        conjuncts = concept.getConjuncts()
+
+        left_conjunct = conjuncts[0]
+        right_conjunct = conjuncts[1]
+
+        if left_conjunct not in node.concepts:
+            node.concepts.add(left_conjunct)
+            new_concepts.add(left_conjunct)
+        else:
+            print(f"⊓-rule 1: was not applied to {node}")
+        if right_conjunct not in node.concepts:
+            node.concepts.add(right_conjunct)
+            new_concepts.add(left_conjunct)
+    else:
+        print(f"⊓-rule 1: was not applied to {node}")
+        print(f"concept {concept} is not a conjunction")
+
+    return new_concepts
+
+# applied to every new concept/node
+# ⊓-rule 2: If d has C and D assigned, assign also C ⊓ D to d.
+def apply_conjunction_rule2(node, concept):
+    conceptType = concept.getClass().getSimpleName()
+    new_concepts = set()
+    for value in node.concepts:
+        # check if the new concept is a conjuction and already has value in its conjuncts
+        if conceptType == "ConceptConjunction" and value in concept.getConjuncts():
+            continue
+        # check if value is a conjuction and already has the new concept in its conjuncts
+        if value.getClass().getSimpleName() == "ConceptConjunction" and concept in value.getConjuncts():
+            continue
+
+
+        conjunction = elFactory.getConjunction(value, concept)
+        swapped_conjunction = elFactory.getConjunction(concept, value)
+        
+        if (conjunction not in node.concepts) and (swapped_conjunction not in node.concepts):
+            node.concepts.add(conjunction)
+            new_concepts.add(conjunction)
+    return new_concepts
+
+#∃-rule 1: If d has an r-successor with C assigned, add ∃r.C to d
+def apply_existential_rule1(node, concept, graph):
+    #TODO
+    pass
 
 
 def check_subsumed(C0, D0, tbox):
 
-    # loop through all concept names to compute subsumers from every concept name
-    for concept in conceptNames:
-        model_dict = {} # dict with key d0 and value is a set with intially only C1
-        model_dict['d0'] = set() # dictionary values are a set where we add the concepts to 
-        # assign C0 to d0 as initial concept
-        model_dict['d0'].add(concept)  
-        relations_dict = {'d0': dict()}  
-
-        changed = True
-        while changed:
-            changed = False
-            # my_dict = apply_rule(self, axiom, model_dict)
-            tbox = ontology.tbox()
-            axioms = tbox.getAxioms()
-            #loop through all axioms in the Tbox
-            for axiom in axioms: #  or for axiom in tbox. axioms -> tbox.getAxioms():
-                # check type of axiom in Tbox
-                axiomType = axiom.getClass().getSimpleName() 
-
-                # apply rules on d in all possible ways
-                if axiomType == "TopConcept$":
-                    # apply ⊤-rule
-                    changed = apply_top_rule(axiom, model_dict)
-                if axiomType == "ConceptConjunction":
-                    # apply ⊓-rules:
-                    changed = apply_conjunction_rule(axiom, model_dict)
-                if axiomType == "ExistentialRoleRestriction":
-                    role = concept.role()
-                    filler = concept.filler()
-                    for node, concepts in model_dict.items():
-                        if role not in relations_dict[node]:
-
-                            changed = True
-                        
-
-                if axiomType == "GeneralConceptInclusion":
-                    # ⊑-rule: If d has C assigned and C ⊑ D ∈ T , then also assign D to d
-                    apply_subsumption_rule(axiom, model_dict)
-
-        
-
-    # If D0 was assigned to d0, return YES (C0 subsumed by D0), otherwise return NO (C0 not subsumed by D0)
-    if D0 in model_dict[0]:
-        return True
-    return False  
+    # Every rule is applied only considering newly generated nodes/concepts/relations
+    # That's why rule functions returns newly generated nodes/concepts/relations
+    # On each iteration every rule is applied to them, generating new nodes/concepts/relations for the next iteration.
+    # This should improve execution time because we don't apply the same rules we have already applied to old nodes/concept/relations, that would not change the graph anyway
+    #TODO
+    pass
 
 def compute_subsumers_of_class(D0, ontology):
     # compute all subsumers for a given class name
@@ -160,28 +141,27 @@ def compute_subsumers_of_class(D0, ontology):
 
 
 if __name__ == "__main__":
-    
-    # get the TBox axioms
-    tbox = get_tbox(ontology)
-    axioms = tbox.getAxioms()
-
-    
-
-
-    #print("These are the axioms in the TBox:")
-    #for axiom in axioms:
-    #    print(formatter.format(axiom))
-
-    # Get no equivalence tboxp
-    new_tbox = get_no_equivalence_tbox(tbox)
-    #print("These are the axioms in the TBox without equivalence axioms:")
-    for axiom in new_tbox:
-        concepts = axiom.subConcepts()
-        left_concept = concepts[0]
-        print(formatter.format(left_concept))
 
     #for c in allConcepts:
     #    print(formatter.format(c))
 
     #for c_n in conceptNames:
     #    print(formatter.format(c_n))
+    
+    # create a list of conjuctions for test purposes
+    conjunctions = []
+    conceptA = elFactory.getConceptName("A")
+    conceptB = elFactory.getConceptName("B")
+    conjunctions.append(elFactory.getConjunction(conceptA, conceptB))
+    conceptC = elFactory.getConceptName("C")
+    conceptD = elFactory.getConceptName("D")
+    conjunctions.append(elFactory.getConjunction(conceptC, conceptD))
+
+    test_conjunction1 = elFactory.getConjunction(conceptB, conceptA)
+    swapped_conjunction = elFactory.getConjunction(conceptA, conceptB)
+
+    if test_conjunction1 in conjunctions:
+        print(f"test_conjunction1 {formatter.format(test_conjunction1)} is in conjunctions")
+    
+    if swapped_conjunction in conjunctions:
+        print(f"test_conjunction2 {formatter.format(swapped_conjunction)} is in conjunctions")

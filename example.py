@@ -78,6 +78,10 @@ for axiom in axioms:
             print(" - "+formatter.format(concept))
         print()
         foundEquivalenceAxiom = True
+    elif not(axiomType == "GeneralConceptInclusion" or axiomType == "EquivalenceAxiom"):
+        print("I found an axiom of type: ",axiomType)
+        print(formatter.format(axiom))
+        print()
 
 # accessing the relevant types of concepts:
 foundConceptName=False
