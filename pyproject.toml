@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "EL_reasoner"
+version = "0.1.0"
+description = "An EL reasoner for the Knowledge Representation course at the Vrije Universiteit Amsterdam."
+readme = "README.md"
+authors = [{name = "Michele Vannucci", email = "michele.vannucci20@gmail.com"}]
+requires-python = ">=3.8"
+dynamic = ["dependencies"]
+
+[tool.setuptools.packages.find]
+# All the following settings are optional:
+where = ["EL_reasoner"]  # ["."] by default
+include = ["*"]  # ["*"] by default
+exclude = ["tests*"]  # empty by default
+namespaces = false  # true by default
