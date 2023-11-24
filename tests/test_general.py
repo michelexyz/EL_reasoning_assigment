@@ -1,30 +1,19 @@
+from ELreasoner.tbox_conversion import get_no_equivalence_tbox
+from ELreasoner.resources import gateway, elFactory, formatter, parser
 import pytest
-from tbox_conversion import get_no_equivalence_tbox
-from EL_reasoner.resources import JavaGateway
 
 
-@pytest.fixture
-def gateway_resources():
-    # Setup: Initialize JavaGateway using your custom class
-    gateway = JavaGateway()  # Update path as needed
-    gateway.start()
-
-    parser = gateway.get_parser()
-    elFactory = gateway.get_factory()
-    ontology = parser.parseFile("pizza.owl")
-    tbox = ontology.tbox()
-
-    # get a formatter to print in nice DL format
-    formatter = gateway.get_formatter()
-
-    # Yield the resources for the test
-    yield gateway, formatter, elFactory, tbox
-
-    # Teardown: Close the Java Gateway
+@pytest.fixture(scope="session", autouse=True)
+def setup_and_teardown():
+    # Setup code goes here
+    yield
     gateway.stop()
 
-def test_get_no_equivalence_tbox(gateway_resources):
-    _, _, _, tbox = gateway_resources
+def test_get_no_equivalence_tbox():
+    
+    
+    ontology =parser.parseFile("pizza.owl")
+    tbox = ontology.tbox()
     new_tbox = get_no_equivalence_tbox(tbox)
     
 
@@ -33,10 +22,7 @@ def test_get_no_equivalence_tbox(gateway_resources):
         assert axiomType in ['GeneralConceptInclusion', 'EquivalenceAxiom']
 
 @pytest.mark.skip(reason="EL Algorithm works anyway, just slower")
-def test_concepts_equality(gateway_resources):
-    _, formatter, elFactory, _ = gateway_resources
-    # create a list of conjuctions for test purposes
-
+def test_concepts_equality():
 
     conjunctions = []
     conceptA = elFactory.getConceptName("A")

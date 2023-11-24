@@ -3,4 +3,4 @@ __pycache__/
 .pytest_cache/
 settings.json
 .vscode/
-EL_reasoner.egg-info/
+ELreasoner.egg-info/

@@ -1,6 +1,7 @@
 #! /usr/bin/python
 
 from py4j.java_gateway import JavaGateway
+import os
 
 # connect to the java gateway of dl4python
 gateway = JavaGateway()
@@ -13,8 +14,10 @@ formatter = gateway.getSimpleDLFormatter()
 
 print("Loading the ontology...")
 
-# load an ontology from a file
-ontology = parser.parseFile("pizza.owl")
+current_directory = os.path.dirname(os.path.abspath(__file__))
+ontology_path = os.path.join(current_directory, 'pizza.owl')
+
+ontology = parser.parseFile(ontology_path)
 
 print("Loaded the ontology!")
 
