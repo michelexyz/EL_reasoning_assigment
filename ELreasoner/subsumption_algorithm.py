@@ -84,6 +84,7 @@ def check_subsumed(C0, D0, tbox, allConcepts=None):
         
         new_nodes, new_concepts, new_edges = next_new_nodes, next_new_concepts, next_new_edges
 
+        
         if D0 in graph.nodes[d0.name].concepts:
             return True
     return False

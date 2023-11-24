@@ -8,15 +8,15 @@ import sys
 
 
 
-def compute_subsumers_of_class(D0, tbox, allConcepts):
+def compute_subsumers_of_class(C0, tbox, allConcepts):
 
     subsumers = []
     conceptNames = ontology.getConceptNames()
 
     # loop through all concept names to compute subsumers for every concept name
     for concept in conceptNames:
-        print(f"Computimg subsution of {formatter.format(concept)}, with respect to {formatter.format(D0)}")
-        if check_subsumed(concept, D0, tbox, allConcepts):
+        print(f"Computimg subsution of {formatter.format(C0)}, with respect to {formatter.format(concept)}")
+        if check_subsumed(C0, concept, tbox, allConcepts):
             subsumers.append(concept)
         
     return subsumers
