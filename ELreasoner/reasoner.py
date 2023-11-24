@@ -37,7 +37,7 @@ if __name__ == "__main__":
 
     # python PROGRAMM_NAME ONTOLOGY_FILE CLASS_NAME
 
-    margheritaConcept = elFactory.getConceptName("Margherita")
+    margheritaConcept = elFactory.getConceptName('"Margherita"')
 
     subsumers = compute_subsumers_of_class(margheritaConcept, tbox, allConcepts)
 
