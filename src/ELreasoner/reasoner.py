@@ -26,11 +26,11 @@ def compute_subsumers_of_class(C0, ontology):
 if __name__ == "__main__":
 
     current_directory = os.path.dirname(os.path.abspath(__file__))
-    ontology_path = os.path.join(current_directory, 'pizza.owl')
+    ontology_path = os.path.join(current_directory, 'Sushi23_11.owl')
 
     ontology = parser.parseFile(ontology_path)
 
-    testConcept = elFactory.getConceptName('"Margherita"')
+    testConcept = elFactory.getConceptName('Temaki')
 
     subsumers = compute_subsumers_of_class(testConcept, ontology)
 

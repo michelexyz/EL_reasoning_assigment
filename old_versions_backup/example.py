@@ -171,7 +171,7 @@ hermit.setOntology(ontology)
 print()
 print("According to HermiT, Margherita has the following subsumers: ")
 subsumers = hermit.getSubsumers(margherita)
-for concept in subsumers:
+for concept in subsumers.toArray():
     print(" - ",formatter.format(concept))
 print("(",len(subsumers)," in total)")
 print()

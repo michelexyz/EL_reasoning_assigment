@@ -1,0 +1,1119 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/mirth/ontologies/2023/10/sushi"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/mirth/ontologies/2023/10/sushi">
+    <Prefix name="" IRI="http://www.semanticweb.org/mirth/ontologies/2023/10/sushi"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="shi" IRI="http://www.semanticweb.org/mirth/ontologies/2023/10/sushi"/>
+    <Prefix name="sus" IRI="http://www.semanticweb.org/mirth/ontologies/2023/10/sushi"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal xml:lang="en">This ontology describes sushi dishes for a restaurant. It gives an overview about the different dishes the restaurant has to offer, as well as some
+knowledge about them (ingredients, properties of these ingredients, etc.).</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="/Avocado"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Beef"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Chicken"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Cooked"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/CookingStyle"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Country"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Crab"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Cucumber"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/EbiNigiri"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Egg"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Fish"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Food"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Fruit"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Ginger"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Grain"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Hot"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/IngredientCharacteristic"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/InterestingSushi"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/KaniNigiri"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/KappaMaki"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/MaguroNigiri"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Maki"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Mayonnaise"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Meat"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Medium"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Mild"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/NamedSushi"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Nigiri"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/NonVegetarianSushi"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/NoriSeaweed"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Onion"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Prawn"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Raw"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/RawFishSushi"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/RealJapaneseSushi"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Rice"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/SakeNigiri"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Salmon"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Sashimi"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/SashimiSake"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/SashimiSalmonTuna"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/SashimiTuna"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Sauce"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Sesame"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/SesameSeads"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/SimpleSushi"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/SoySauce"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Spiciness"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/SpicyIngredient"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/SpicySushi"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Sriracha"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Sushi"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/SushiIngredient"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/TamagoNigiri"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Temaki"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/TemakiCalifornia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/TemakiMaguro"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/TemakiMaguroSpicy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/TemakiSake"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Tobiko"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Tuna"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Vegetable"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/VegetarianIngredient"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/VegetarianSushi"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasCharacteristic"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasCookingStyle"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasCountryOfOrigin"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasIngredient"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasSpiciness"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/isIngredientOf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/hasName"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/Japan"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="/UnitedStates"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="/Country"/>
+        <ObjectIntersectionOf>
+            <Class IRI="/Country"/>
+            <ObjectOneOf>
+                <NamedIndividual IRI="/Japan"/>
+                <NamedIndividual IRI="/UnitedStates"/>
+            </ObjectOneOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/InterestingSushi"/>
+        <ObjectIntersectionOf>
+            <Class IRI="/Sushi"/>
+            <ObjectMinCardinality cardinality="5">
+                <ObjectProperty IRI="/hasIngredient"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/NonVegetarianSushi"/>
+        <ObjectIntersectionOf>
+            <Class IRI="/Sushi"/>
+            <ObjectComplementOf>
+                <Class IRI="/VegetarianSushi"/>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/RawFishSushi"/>
+        <ObjectIntersectionOf>
+            <Class IRI="/NonVegetarianSushi"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="/hasIngredient"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="/Fish"/>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="/hasCookingStyle"/>
+                        <Class IRI="/Raw"/>
+                    </ObjectSomeValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/RealJapaneseSushi"/>
+        <ObjectIntersectionOf>
+            <Class IRI="/Sushi"/>
+            <ObjectHasValue>
+                <ObjectProperty IRI="/hasCountryOfOrigin"/>
+                <NamedIndividual IRI="/Japan"/>
+            </ObjectHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/SimpleSushi"/>
+        <ObjectIntersectionOf>
+            <Class IRI="/Sushi"/>
+            <ObjectMaxCardinality cardinality="3">
+                <ObjectProperty IRI="/hasIngredient"/>
+            </ObjectMaxCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/SpicyIngredient"/>
+        <ObjectIntersectionOf>
+            <Class IRI="/SushiIngredient"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="/hasSpiciness"/>
+                <Class IRI="/Hot"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/SpicySushi"/>
+        <ObjectIntersectionOf>
+            <Class IRI="/Sushi"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="/hasIngredient"/>
+                <Class IRI="/SpicyIngredient"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/VegetarianIngredient"/>
+        <ObjectIntersectionOf>
+            <Class IRI="/SushiIngredient"/>
+            <ObjectUnionOf>
+                <Class IRI="/Egg"/>
+                <Class IRI="/Fruit"/>
+                <Class IRI="/Grain"/>
+                <Class IRI="/NoriSeaweed"/>
+                <Class IRI="/Sauce"/>
+                <Class IRI="/Vegetable"/>
+            </ObjectUnionOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="/VegetarianSushi"/>
+        <ObjectIntersectionOf>
+            <Class IRI="/Sushi"/>
+            <ObjectAllValuesFrom>
+                <ObjectProperty IRI="/hasIngredient"/>
+                <Class IRI="/VegetarianIngredient"/>
+            </ObjectAllValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="/Avocado"/>
+        <Class IRI="/Fruit"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Beef"/>
+        <Class IRI="/Meat"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Chicken"/>
+        <Class IRI="/Meat"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Cooked"/>
+        <Class IRI="/CookingStyle"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/CookingStyle"/>
+        <Class IRI="/IngredientCharacteristic"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Crab"/>
+        <Class IRI="/Fish"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Cucumber"/>
+        <Class IRI="/Vegetable"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/EbiNigiri"/>
+        <Class IRI="/Nigiri"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/EbiNigiri"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <Class IRI="/Prawn"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/EbiNigiri"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <ObjectUnionOf>
+                <Class IRI="/Prawn"/>
+                <Class IRI="/Rice"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Egg"/>
+        <Class IRI="/SushiIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Fish"/>
+        <Class IRI="/SushiIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Fruit"/>
+        <Class IRI="/SushiIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Ginger"/>
+        <Class IRI="/Vegetable"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Grain"/>
+        <Class IRI="/SushiIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Hot"/>
+        <Class IRI="/Spiciness"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/InterestingSushi"/>
+        <Class IRI="/Sushi"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/KaniNigiri"/>
+        <Class IRI="/Nigiri"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/KaniNigiri"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <ObjectIntersectionOf>
+                <Class IRI="/Crab"/>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="/hasCookingStyle"/>
+                    <Class IRI="/Cooked"/>
+                </ObjectSomeValuesFrom>
+            </ObjectIntersectionOf>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/KaniNigiri"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <ObjectUnionOf>
+                <Class IRI="/Crab"/>
+                <Class IRI="/Rice"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/KappaMaki"/>
+        <Class IRI="/Maki"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/KappaMaki"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <Class IRI="/Cucumber"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/KappaMaki"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <ObjectUnionOf>
+                <Class IRI="/Cucumber"/>
+                <Class IRI="/NoriSeaweed"/>
+                <Class IRI="/Rice"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/KappaMaki"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="/hasCountryOfOrigin"/>
+            <NamedIndividual IRI="/Japan"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/MaguroNigiri"/>
+        <Class IRI="/Nigiri"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/MaguroNigiri"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <ObjectIntersectionOf>
+                <Class IRI="/Tuna"/>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="/hasCookingStyle"/>
+                    <Class IRI="/Raw"/>
+                </ObjectSomeValuesFrom>
+            </ObjectIntersectionOf>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/MaguroNigiri"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <ObjectUnionOf>
+                <Class IRI="/Rice"/>
+                <Class IRI="/Tuna"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Maki"/>
+        <Class IRI="/NamedSushi"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Maki"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <Class IRI="/NoriSeaweed"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Maki"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <Class IRI="/Rice"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Mayonnaise"/>
+        <Class IRI="/Sauce"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Meat"/>
+        <Class IRI="/SushiIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Medium"/>
+        <Class IRI="/Spiciness"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Mild"/>
+        <Class IRI="/Spiciness"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/NamedSushi"/>
+        <Class IRI="/Sushi"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Nigiri"/>
+        <Class IRI="/NamedSushi"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Nigiri"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <Class IRI="/Rice"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/NonVegetarianSushi"/>
+        <Class IRI="/Sushi"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/NoriSeaweed"/>
+        <Class IRI="/SushiIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Onion"/>
+        <Class IRI="/Vegetable"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Prawn"/>
+        <Class IRI="/Fish"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Raw"/>
+        <Class IRI="/CookingStyle"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/RawFishSushi"/>
+        <Class IRI="/NonVegetarianSushi"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/RealJapaneseSushi"/>
+        <Class IRI="/Sushi"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Rice"/>
+        <Class IRI="/Grain"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/SakeNigiri"/>
+        <Class IRI="/Nigiri"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/SakeNigiri"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <Class IRI="/Salmon"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/SakeNigiri"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <ObjectUnionOf>
+                <Class IRI="/Rice"/>
+                <Class IRI="/Salmon"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Salmon"/>
+        <Class IRI="/Fish"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Sashimi"/>
+        <Class IRI="/NamedSushi"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Sashimi"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <ObjectIntersectionOf>
+                <Class IRI="/SushiIngredient"/>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="/hasCookingStyle"/>
+                    <Class IRI="/Raw"/>
+                </ObjectSomeValuesFrom>
+            </ObjectIntersectionOf>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/SashimiSake"/>
+        <Class IRI="/Sashimi"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/SashimiSake"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <Class IRI="/Salmon"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/SashimiSake"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <Class IRI="/Salmon"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/SashimiSake"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="/hasCountryOfOrigin"/>
+            <NamedIndividual IRI="/Japan"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/SashimiSalmonTuna"/>
+        <Class IRI="/Sashimi"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/SashimiSalmonTuna"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <Class IRI="/Salmon"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/SashimiSalmonTuna"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <Class IRI="/Tuna"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/SashimiSalmonTuna"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <ObjectUnionOf>
+                <Class IRI="/Salmon"/>
+                <Class IRI="/Tuna"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/SashimiSalmonTuna"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="/hasCountryOfOrigin"/>
+            <NamedIndividual IRI="/Japan"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/SashimiTuna"/>
+        <Class IRI="/Sashimi"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/SashimiTuna"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <Class IRI="/Tuna"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/SashimiTuna"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <Class IRI="/Tuna"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/SashimiTuna"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="/hasCountryOfOrigin"/>
+            <NamedIndividual IRI="/Japan"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Sauce"/>
+        <Class IRI="/SushiIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Sesame"/>
+        <Class IRI="/Grain"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/SesameSeads"/>
+        <Class IRI="/Grain"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/SimpleSushi"/>
+        <Class IRI="/Sushi"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/SoySauce"/>
+        <Class IRI="/Sauce"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Spiciness"/>
+        <Class IRI="/IngredientCharacteristic"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/SpicyIngredient"/>
+        <Class IRI="/SushiIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/SpicySushi"/>
+        <Class IRI="/Sushi"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Sriracha"/>
+        <Class IRI="/Sauce"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Sriracha"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/hasSpiciness"/>
+            <Class IRI="/Hot"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Sushi"/>
+        <Class IRI="/Food"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/SushiIngredient"/>
+        <Class IRI="/Food"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TamagoNigiri"/>
+        <Class IRI="/Nigiri"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TamagoNigiri"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <Class IRI="/Egg"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TamagoNigiri"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <ObjectUnionOf>
+                <Class IRI="/Egg"/>
+                <Class IRI="/Rice"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TamagoNigiri"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="/hasCountryOfOrigin"/>
+            <NamedIndividual IRI="/Japan"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Temaki"/>
+        <Class IRI="/Maki"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TemakiCalifornia"/>
+        <Class IRI="/Temaki"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TemakiCalifornia"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="/hasIngredient"/>
+                <Class IRI="/Avocado"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="/hasIngredient"/>
+                <Class IRI="/Crab"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="/hasIngredient"/>
+                <Class IRI="/Cucumber"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="/hasIngredient"/>
+                <Class IRI="/Tobiko"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TemakiCalifornia"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <ObjectUnionOf>
+                <Class IRI="/Avocado"/>
+                <Class IRI="/Crab"/>
+                <Class IRI="/Cucumber"/>
+                <Class IRI="/NoriSeaweed"/>
+                <Class IRI="/Rice"/>
+                <Class IRI="/Tobiko"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TemakiCalifornia"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="/hasCountryOfOrigin"/>
+            <NamedIndividual IRI="/UnitedStates"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TemakiMaguro"/>
+        <Class IRI="/Temaki"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TemakiMaguro"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="/hasIngredient"/>
+                <Class IRI="/Cucumber"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="/hasIngredient"/>
+                <Class IRI="/Sesame"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="/hasIngredient"/>
+                <Class IRI="/Tuna"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TemakiMaguro"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <ObjectUnionOf>
+                <Class IRI="/Cucumber"/>
+                <Class IRI="/NoriSeaweed"/>
+                <Class IRI="/Rice"/>
+                <Class IRI="/Sesame"/>
+                <Class IRI="/Tuna"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TemakiMaguro"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="/hasCountryOfOrigin"/>
+            <NamedIndividual IRI="/Japan"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TemakiMaguroSpicy"/>
+        <Class IRI="/Temaki"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TemakiMaguroSpicy"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="/hasIngredient"/>
+                <Class IRI="/Cucumber"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="/hasIngredient"/>
+                <Class IRI="/Sesame"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="/hasIngredient"/>
+                <Class IRI="/Sriracha"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="/hasIngredient"/>
+                <Class IRI="/Tuna"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TemakiMaguroSpicy"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <ObjectUnionOf>
+                <Class IRI="/Cucumber"/>
+                <Class IRI="/NoriSeaweed"/>
+                <Class IRI="/Rice"/>
+                <Class IRI="/Sesame"/>
+                <Class IRI="/Sriracha"/>
+                <Class IRI="/Tuna"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TemakiMaguroSpicy"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="/hasCountryOfOrigin"/>
+            <NamedIndividual IRI="/Japan"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TemakiSake"/>
+        <Class IRI="/Temaki"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TemakiSake"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <Class IRI="/Avocado"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TemakiSake"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <ObjectIntersectionOf>
+                <Class IRI="/Salmon"/>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty IRI="/hasCookingStyle"/>
+                    <Class IRI="/Raw"/>
+                </ObjectSomeValuesFrom>
+            </ObjectIntersectionOf>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TemakiSake"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="/hasIngredient"/>
+            <ObjectUnionOf>
+                <Class IRI="/Avocado"/>
+                <Class IRI="/NoriSeaweed"/>
+                <Class IRI="/Rice"/>
+                <Class IRI="/Salmon"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/TemakiSake"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="/hasCountryOfOrigin"/>
+            <NamedIndividual IRI="/Japan"/>
+        </ObjectHasValue>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Tobiko"/>
+        <Class IRI="/Fish"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Tuna"/>
+        <Class IRI="/Fish"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Vegetable"/>
+        <Class IRI="/SushiIngredient"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/VegetarianIngredient"/>
+        <Class IRI="/SushiIngredient"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="/Cooked"/>
+        <Class IRI="/Raw"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="/Egg"/>
+        <Class IRI="/Fish"/>
+        <Class IRI="/Fruit"/>
+        <Class IRI="/Grain"/>
+        <Class IRI="/Meat"/>
+        <Class IRI="/NoriSeaweed"/>
+        <Class IRI="/Sauce"/>
+        <Class IRI="/Vegetable"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="/Hot"/>
+        <Class IRI="/Medium"/>
+        <Class IRI="/Mild"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="/Nigiri"/>
+        <Class IRI="/Sashimi"/>
+        <Class IRI="/Temaki"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="/NonVegetarianSushi"/>
+        <Class IRI="/VegetarianSushi"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="/Country"/>
+        <NamedIndividual IRI="/Japan"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="/Country"/>
+        <NamedIndividual IRI="/UnitedStates"/>
+    </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/hasName"/>
+        <NamedIndividual IRI="/Japan"/>
+        <Literal>Japan</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="/hasName"/>
+        <NamedIndividual IRI="/UnitedStates"/>
+        <Literal>United States of America</Literal>
+    </DataPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/hasCookingStyle"/>
+        <ObjectProperty IRI="/hasCharacteristic"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="/hasSpiciness"/>
+        <ObjectProperty IRI="/hasCharacteristic"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="/hasIngredient"/>
+        <ObjectProperty IRI="/isIngredientOf"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/hasCharacteristic"/>
+        <Class IRI="/SushiIngredient"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/hasCookingStyle"/>
+        <ObjectUnionOf>
+            <Class IRI="/Fish"/>
+            <Class IRI="/Meat"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/hasIngredient"/>
+        <Class IRI="/Food"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/hasCharacteristic"/>
+        <Class IRI="/IngredientCharacteristic"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/hasCookingStyle"/>
+        <Class IRI="/CookingStyle"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/hasIngredient"/>
+        <Class IRI="/SushiIngredient"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/hasSpiciness"/>
+        <Class IRI="/Spiciness"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="/hasName"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Maki</IRI>
+        <Literal>This encompasses sushi rolls with three main components: seaweed, vinegared rice, and various fillings like seafood and vegetables. Maki has become a worldwide culinary staple and can include different variations like hosomaki, futomaki, and uramaki (inside-out rolls)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Nigiri</IRI>
+        <Literal>The most popular and recognizable form of suhsi, where rice and toppings are rolled into a cylindrical shape with an outer layer of seaweed.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Sashimi</IRI>
+        <Literal>Raw fish sliced into thin pieces. Often eaten with soy saucs.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/TamagoNigiri</IRI>
+        <Literal xml:lang="en">Rice and egg</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Temaki</IRI>
+        <Literal>Cone-shaped sushi rolls that are rolled in the cook&apos;s hand.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/Tobiko</IRI>
+        <Literal>Tobiko is the Japanese term for flying fish roe. It&apos;s small, ranging from 0.5 to 0.8 millimeters in diameter, and is often used in sushi dishes. Tobiko adds a crunchy texture and a salty taste to the food. It&apos;s commonly used as a garnish on sushi rolls, including California rolls and as part of the toppings in gunkan maki.</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

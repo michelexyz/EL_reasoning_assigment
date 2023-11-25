@@ -20,7 +20,7 @@ except Exception as e:
     
     sys.exit(1)
 try:
-    userConcept = elFactory.getConceptName('"'+class_name+'"')
+    userConcept = elFactory.getConceptName(class_name)
     subsumers = compute_subsumers_of_class(userConcept, ontology)
 
 except Exception as e:
