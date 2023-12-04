@@ -6,7 +6,7 @@ The reasoner algorithm applies the classical EL reasoning rules (top rule, subsu
 ## The Sushi ontology
 For the assigment we also designed a [custom ontology](https://github.com/michelexyz/Knowlege_Representation_Assigment/blob/main/src/ELreasoner/Sushi23_11.owl) for an hypothetical sushi restaurant.
 ## The report
-Finally we have discussed the design of our project and a research question inside the a paper-like [report](https://github.com/michelexyz/Knowlege_Representation_Assigment/blob/main/report.pdf) on which you can find more details. 
+Finally we have discussed the design of our project and a research question inside a paper-like [report](https://github.com/michelexyz/Knowlege_Representation_Assigment/blob/main/report.pdf) on which you can find more details. 
 
 ## Usage
 First, create a venv environment on the root of the project using "python -m venv .venv"
