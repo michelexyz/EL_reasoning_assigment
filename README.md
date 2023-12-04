@@ -1,7 +1,7 @@
 # Knowlege Representation Assigment
 This repo was made for the Knowledge representation course at Vrije Universiteit, Amsterdam.
 ## The EL reasoner
-The repo was made to work on an implementation of a reasoner that uses EL logic rules to compute the subsumers of a class of a OWL ontology.
+The repo was made to work on an implementation of a reasoner that uses EL logic rules to compute the subsumers of a class inside a OWL ontology.
 The reasoner algorithm applies the classical EL reasoning rules (top rule, subsumption rule, the two conjunction rules and the two existential rules) only considering newly genereated nodes edges or concepts of the graph. This way it doesn't waste computational time and complexity appling rules between nodes on which have already been applied.
 ## The Sushi ontology
 For the assigment we also designed a [custom ontology](https://github.com/michelexyz/Knowlege_Representation_Assigment/blob/main/src/ELreasoner/Sushi23_11.owl) for an hypothetical sushi restaurant.
